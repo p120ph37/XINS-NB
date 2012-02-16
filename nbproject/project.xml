@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>xyz</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>xyz</name>
+            <properties>
+                <property name="api.name">xyz</property>
+                <property name="xins.home">abc</property>
+                <property name="ant.script">nbbuild.xml</property>
+            </properties>
+            <folders>
+                <source-folder>
+                    <label>${api.name}</label>
+                    <location>.</location>
+                    <encoding>MacRoman</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>impl</label>
+                    <type>java</type>
+                    <location>impl</location>
+                    <encoding>MacRoman</encoding>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <script>${ant.script}</script>
+                    <target>build</target>
+                </action>
+                <action name="clean">
+                    <script>${ant.script}</script>
+                    <target>clean</target>
+                </action>
+                <action name="javadoc">
+                    <script>${ant.script}</script>
+                    <target>javadoc</target>
+                </action>
+                <action name="run">
+                    <script>${ant.script}</script>
+                    <target>run</target>
+                </action>
+                <action name="test">
+                    <script>${ant.script}</script>
+                    <target>test</target>
+                </action>
+                <action name="rebuild">
+                    <script>${ant.script}</script>
+                    <target>clean</target>
+                    <target>build</target>
+                </action>
+                <action name="debug">
+                    <script>${ant.script}</script>
+                    <target>debug</target>
+                </action>
+                <action name="debug.fix">
+                    <script>${ant.script}</script>
+                    <target>debug-fix</target>
+                    <context>
+                    <property>fix.file</property>
+                    <folder>impl</folder>
+                    <pattern>\.java$</pattern>
+                    <format>relative-path-noext</format>
+                    <arity>
+                        <one-file-only/>
+                    </arity>
+                </context>
+                </action>
+            </ide-actions>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>impl</label>
+                        <location>impl</location>
+                    </source-folder>
+                    <source-file>
+                        <location>${ant.script}</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="javadoc"/>
+                    <ide-action name="run"/>
+                    <ide-action name="test"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="debug"/>
+                    <ide-action name="debug.fix"/>
+                    <action>
+                        <script>${ant.script}</script>
+                        <label>Generate Specdocs</label>
+                        <target>specdocs</target>
+                    </action>
+                    <action>
+                        <script>${ant.script}</script>
+                        <label>Profile Project</label>
+                        <target>profile</target>
+                    </action>
+                    <action>
+                        <script>${ant.script}</script>
+                        <label>Ask...</label>
+                        <target>ask</target>
+                    </action>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/3">
+            <compilation-unit>
+                <package-root>impl</package-root>
+                <classpath mode="compile">../../build/classes-api/${api.name};../../build/classes-types/${api.name};${xins.home}/build/logdoc.jar;${xins.home}/build/xins-client.jar;${xins.home}/build/xins-server.jar;${xins.home}/build/xins-common.jar;${xins.home}/lib/servlet.jar;${xins.home}/lib/xmlenc.jar</classpath>
+                <source-level>1.6</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>
